@@ -49,15 +49,17 @@
                             <span class="icon-bar"></span>
                         </button>
                         <div class="navbar-leftSide">
-                            <a class="navbar-brand" runat="server" href="~/">Skill Hunter</a>
+                            <a class="navbar-brand" runat="server" href="~/Home">Skill Hunter</a>
                             <div class="navbar-brand-slogan" runat="server">Работа для каждого</div>
                         </div>
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li><a runat="server" href="~/">Домашняя</a></li>
+                            <li><a runat="server" href="~/Home">Компании</a></li>
+                            <li><a runat="server" href="~/Pages/candidates">Соискатели</a></li>
                             <li><a runat="server" href="~/About">Информация</a></li>
                             <li><a runat="server" href="~/Contact">Связаться</a></li>
+                            <li><a runat="server" href="~/Pages/auth">Регистрация</a></li>
                         </ul>
                     </div>
                 </div>
@@ -75,12 +77,18 @@
         <div class="container-right">
             <div class="container-title">Категории</div>
             <div class="container-categories">
-                <a href="#">Начало карьеры, студенты</a>
-                <a href="#">Искусство, развлечения</a>
-                <a href="#">Маркетинг, реклама, PR</a>
-                <a href="#">Наука, образование</a>
-                <a href="#">Продажи</a>
-                <a href="#">IT</a>
+
+                   <%
+             
+                foreach (HR_Agency.Models.Category cat in GetCategories())
+                {
+        
+                    Response.Write(String.Format(@"
+                        <a href='/Pages/vacancies.aspx?cat={0}'>{1}</a>", 
+                        cat.id, cat.title));
+                }
+         %>
+           
 
             </div>
         </div>

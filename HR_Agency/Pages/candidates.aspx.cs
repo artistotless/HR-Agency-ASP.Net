@@ -6,16 +6,18 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace HR_Agency
+namespace HR_Agency.Pages
 {
-    public partial class _Default : Page
+    public partial class candidates : System.Web.UI.Page
     {
+
         private DataStore repository = new DataStore();
 
-        protected IEnumerable<Client> GetClients()
+        protected IEnumerable<Candidate> GetCandidates()
         {
-            return repository.GetClients();
+            return repository.GetCandidates();
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 

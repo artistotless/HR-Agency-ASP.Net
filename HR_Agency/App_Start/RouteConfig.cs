@@ -13,6 +13,8 @@ namespace HR_Agency
             var settings = new FriendlyUrlSettings();
             settings.AutoRedirectMode = RedirectMode.Permanent;
             routes.EnableFriendlyUrls(settings);
+            
+            //routes.MapPageRoute("cart", "cart", "~/Pages/CartView.aspx");
         }
     }
 }
